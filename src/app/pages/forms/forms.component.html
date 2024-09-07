@@ -1,0 +1,47 @@
+<div class="flex flex-col flex-auto">
+    <div class="centralizar">
+        <div class="flexColumn gap-2">
+            <p-floatLabel>
+                <input pInputText [(ngModel)]="pessoa.nome" />
+                <label for="nome">Nome</label>
+            </p-floatLabel>
+            <p-floatLabel>
+                <input pInputText [(ngModel)]="pessoa.idade" />
+                <label for="idade">Idade</label>
+            </p-floatLabel>
+            <p-floatLabel>
+                <p-inputMask mask="999.999.999-99" [(ngModel)]="pessoa.cpf" />
+                <label for="cpf">CPF</label>
+            </p-floatLabel>
+            <div class="">
+                <p-button label="Limpar" (click)="limparPessoa()" icon="pi pi-times" />
+                <p-button label="Salvar" (click)="cadastrarPessoa()" icon="pi pi-check" />
+            </div>
+        </div>
+    </div>
+    <div class="crentralizarTabela ">
+        <div class="card tabelaContainer">
+            <p-table [value]="listaPessoas" [tableStyle]="{'min-width': '40rem'}" [scrollable]="true"
+                scrollHeight="280px">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                        <th>CPF</th>
+                        <th>Ações</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-pessoa>
+                    <tr>
+                        <td>{{pessoa.nome}}</td>
+                        <td>{{pessoa.idade}}</td>
+                        <td>{{pessoa.cpf}}</td>
+                        <td>
+                            <p-button icon="pi pi-eye" [rounded]="true" [routerLink]="['/visualizar',pessoa.cpf]"></p-button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>

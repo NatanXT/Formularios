@@ -1,0 +1,22 @@
+<div class="centralizar">
+    <div class="flexColumn gap-2">
+        <p-floatLabel>
+            <input pInputText [ngModel]="pessoa?.nome" disabled/>
+            <label for="nome">Nome</label>
+        </p-floatLabel>
+        <p-floatLabel>
+            <input pInputText [ngModel]="pessoa?.idade" disabled/>
+            <label for="idade">Idade</label>
+        </p-floatLabel>
+        <p-floatLabel>
+            <p-inputMask 
+            mask = "999.999.999-99" 
+            [ngModel]="pessoa?.cpf"
+            disabled/>
+            <label for="cpf">CPF</label>
+        </p-floatLabel>
+        <div class="">
+            <p-button label="Voltar"  icon="pi pi-times" [routerLink]="['/']" />
+        </div>
+    </div>
+</div>
